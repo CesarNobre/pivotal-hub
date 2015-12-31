@@ -1,24 +1,19 @@
-require 'httparty'
+require 'tracker_api'
+
 class Story
  include HTTParty
- 
+ attr_reader :client, :project 
+
  def initialize
- 	@base_uri = "www.pivotaltracker.com/"
- 	@project_id = '1187076'
- 	@project_uri = "#{base_uri}#{project_id}"
- 	@token = "95dcacc6aebd8ed2a22fe4979685d0de"
- 	@header = {
- 		headers => { 
- 			'X-TrackerToken' => "#{@token}",
- 			'Content-Type' => 'application/json', 
- 			'Accept' => 'application/json'}
- 	}
-
+ 	@client = TrackerApi::Client.new(token: '95dcacc6aebd8ed2a22fe4979685d0de')
+ 	@project  = client.project(1298888)
  end
 
- def update story_id, options
- 	options.merge(@header)
- 	self.class.put("#{@project_uri}/stories/#{story_id}",options)
+ def update_state story_id, state
+ 	story = @project.story(110864818)
+ 	story.current_state = state
+ 	story.save
  end
+
 
 end
