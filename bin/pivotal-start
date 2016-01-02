@@ -1,0 +1,7 @@
+#!/usr/bin/env ruby
+
+require_relative '../lib/Story'
+
+test = Pivotal_Hub::Story.new
+
+test.Hello
