@@ -1,4 +1,5 @@
 require 'tracker_api'
+require_relative '../lib/Git'
 
 module Pivotal_Hub
  class Story
@@ -16,7 +17,9 @@ module Pivotal_Hub
   end
 
   def Hello
-  	puts "hi"
+    git_pivotal = Pivotal_Hub::Git.new
+  	git = git_pivotal.get_current_branch
+    puts git.branch
   end
 
   end
