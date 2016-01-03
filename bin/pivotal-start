@@ -4,11 +4,6 @@ require_relative '../lib/Story'
 
 story = Pivotal_Hub::Story.new
 
-if story.nil?
- puts "Enter a git directory and try again!"
- exit
-end
-
 current_branch = story.get_current_branch
 
 start_with_letter = /^[aA-zZ]/
