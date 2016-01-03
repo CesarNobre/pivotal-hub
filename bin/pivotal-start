@@ -23,6 +23,8 @@ if  result != nil
 
  story_choiced = backlog_stories.at(Integer(index_ticket_typed))
  story.update_state(story_choiced.id,"started")
+ story.create_and_switch_to_new_branch(story_choiced.id)
+
  puts "ticket started, lets code!"
  exit
 end
@@ -30,6 +32,7 @@ end
 ticket_number = current_branch.sub /\_.*$/,''
 
 sto = story.update_state(ticket_number,"started")
+story.create_and_switch_to_new_branch(ticket_number)
 puts "Ticket Name: #{sto.name}"
 puts "ticket started, lets code!"
 

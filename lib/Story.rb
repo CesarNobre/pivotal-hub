@@ -33,6 +33,11 @@ module Pivotal_Hub
     @project.stories(with_state: :unstarted, with_label:@label, limit: 10)
   end
 
+  def create_and_switch_to_new_branch ticket_number
+    branch_name = "#{ticket_number}_#{@client.me.name}"
+    @git.branch(branch_name).checkout
+  end
+
   end
 end
 
