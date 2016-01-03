@@ -1,27 +1,28 @@
 require 'tracker_api'
-require_relative '../lib/Git'
+require 'git'
 
 module Pivotal_Hub
  class Story
-  attr_reader :client, :project 
+  attr_reader :client, :project, :git
 
   def initialize
-  	@client = TrackerApi::Client.new(token: '95dcacc6aebd8ed2a22fe4979685d0de')
-  	@project  = client.project(1298888)
+    @git = Git.open(Dir.pwd)
+  	@client = TrackerApi::Client.new(token: @git.config('pivotal.api-token'))
+  	@project  = client.project(@git.config('pivotal.project-id'))
   end
 
   def update_state story_id, state
-  	story = @project.story(110864818)
+  	story = @project.story(story_id)
   	story.current_state = state
   	story.save
+    story
   end
 
-  def Hello
-    git_pivotal = Pivotal_Hub::Git.new
-  	git = git_pivotal.get_current_branch
-    puts git.branch
+  def get_current_branch
+    git = Git.open(Dir.pwd)
+    git.current_branch
   end
-
+  
   end
 end
 
