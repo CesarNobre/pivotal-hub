@@ -9,7 +9,8 @@ module Pivotal_Hub
    if File.exists?('.git')
     @git = Git.open(Dir.pwd)
   	@client = TrackerApi::Client.new(token: @git.config('pivotal.api-token'))
-  	@project  = client.project(@git.config('pivotal.project-id'))
+  	@project  = @client.project(@git.config('pivotal.project-id'))
+    @label = @git.config('pivotal.sprint-label')
    else
     puts "Ops, you are not in git directory!"
     exit
@@ -27,6 +28,10 @@ module Pivotal_Hub
      @git.current_branch
   end
   
+  def get_backlog_stories
+    @project.stories(with_state: :unstarted, with_label:@label, limit: 10)
+  end
+
   end
 end
 

@@ -6,15 +6,26 @@ story = Pivotal_Hub::Story.new
 
 if story.nil?
  puts "Enter a git directory and try again!"
+ exit
 end
 
 current_branch = story.get_current_branch
 result = /[aA-zZ]/ =~ current_branch
-if  result == nil
+
+if  result != nil
  puts "Sorry, but you are not in a ticket branch. Lets stop procastinating and finally open a ticket? [y/n]"
  option_typed = gets.chomp
-  if option_typed.upcase == 'S'
-   
+  if option_typed.upcase == 'Y'
+  	backlog_stories = story.get_backlog_stories
+  	
+  	backlog_stories.each_with_index do |story, index|
+  		puts "#{index} - #{story.name}"
+  	end
+  	puts "which ticket do you want start?"
+  	index_ticket_typed = gets.chomp
+  	story_choiced = backlog_stories.at(Integer(index_ticket_typed))
+  	story.update_state(story_choiced.id,"started")
+    exit
   else
   	puts "Bye!"
   	exit
