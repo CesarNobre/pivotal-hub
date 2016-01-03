@@ -19,8 +19,11 @@ module Pivotal_Hub
   end
 
   def get_current_branch
-    git = Git.open(Dir.pwd)
-    git.current_branch
+   if File.exists?('.git')
+     git = Git.open(Dir.pwd)
+     git.current_branch
+   end
+   puts "You are not in git directory!"
   end
   
   end
