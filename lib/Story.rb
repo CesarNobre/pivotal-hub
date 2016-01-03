@@ -20,6 +20,7 @@ module Pivotal_Hub
   def update_state story_id, state
   	story = @project.story(story_id)
   	story.current_state = state
+    story.owner_ids = [@client.me.id]
   	story.save
     story
   end

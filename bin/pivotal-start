@@ -10,26 +10,26 @@ if story.nil?
 end
 
 current_branch = story.get_current_branch
-result = /[aA-zZ]/ =~ current_branch
+
+start_with_letter = /^[aA-zZ]/
+result =  start_with_letter =~ current_branch
 
 if  result != nil
- puts "Sorry, but you are not in a ticket branch. Lets stop procastinating and finally open a ticket? [y/n]"
- option_typed = gets.chomp
-  if option_typed.upcase == 'Y'
-  	backlog_stories = story.get_backlog_stories
+ puts "Sorry, but you are not in a ticket branch. Lets stop procastinating and finally open a ticket"
+
+ backlog_stories = story.get_backlog_stories
   	
-  	backlog_stories.each_with_index do |story, index|
-  		puts "#{index} - #{story.name}"
-  	end
-  	puts "which ticket do you want start?"
-  	index_ticket_typed = gets.chomp
-  	story_choiced = backlog_stories.at(Integer(index_ticket_typed))
-  	story.update_state(story_choiced.id,"started")
-    exit
-  else
-  	puts "Bye!"
-  	exit
-  end
+ backlog_stories.each_with_index do |story, index|
+ 	puts "#{index} - #{story.name}"
+ end
+  	
+ puts "which ticket do you want start?"
+ index_ticket_typed = gets.chomp
+
+ story_choiced = backlog_stories.at(Integer(index_ticket_typed))
+ story.update_state(story_choiced.id,"started")
+ puts "ticket started, lets code!"
+ exit
 end
 
 ticket_number = current_branch.sub /\_.*$/,''
@@ -37,3 +37,6 @@ ticket_number = current_branch.sub /\_.*$/,''
 sto = story.update_state(ticket_number,"started")
 puts "Ticket Name: #{sto.name}"
 puts "ticket started, lets code!"
+
+
+
