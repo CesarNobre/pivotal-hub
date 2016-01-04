@@ -27,6 +27,11 @@ You can set these parameters through the command git config --global, example:
 
 `git config --global pivotal.api-token "MY_TOKEN"`
 
+#Dependencies
+
+`gem install tracker_api`
+`gem install git`
+
 #How to use?
 
 Enter the directory of your project through the terminal or prompt command, and type `pivotal-start`.
