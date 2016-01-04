@@ -7,7 +7,7 @@ It was created in order to automate basic tasks in Pivotal Tracker and Git.
 
 * Assertiveness in your process of starting a story
 * Agility in daily tasks
-* More time to think in _**cool stufs.**_ :D
+* More time to think in _**cool stufs.**_ :metal:
 
 #Installation
 
