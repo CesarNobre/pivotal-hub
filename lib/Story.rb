@@ -3,7 +3,7 @@ require 'git'
 
 module Pivotal_Hub
  class Story
-  attr_reader :client, :project, :git
+  attr_reader :client, :project, :git, :label
 
   def initialize
    if File.exists?('.git')

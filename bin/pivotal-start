@@ -7,9 +7,9 @@ story = Pivotal_Hub::Story.new
 current_branch = story.get_current_branch
 
 start_with_letter = /^[aA-zZ]/
-result =  start_with_letter =~ current_branch
+result =  current_branch =~ start_with_letter 
 
-if  result != nil
+if result == 0
  puts "Sorry, but you are not in a ticket branch. Lets stop procastinating and finally open a ticket"
 
  backlog_stories = story.get_backlog_stories
@@ -31,9 +31,9 @@ end
 
 ticket_number = current_branch.sub /\_.*$/,''
 
-sto = story.update_state(ticket_number,"started")
+story_started = story.update_state(ticket_number,"started")
 story.create_and_switch_to_new_branch(ticket_number)
-puts "Ticket Name: #{sto.name}"
+puts "Ticket Name: #{story_started.name}"
 puts "ticket started, lets code!"
 
 
