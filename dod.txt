@@ -1,0 +1,42 @@
+**DoD - sprint5** 
+Pontos a serem entregues: 52.0 
+Tickets a serem entregues: 30 
+Pontos atrasados que serao entregues: 6.0 
+Tickets atrasados que serao entregues: 2 
+
+**Features** 
+> #110898200 - [Sample C#] Integração com ticket Frota - 1.0 pontos 
+> #110898202 - [Sample Delphi] Integração com ticket Frota - 2.0 pontos 
+> #110898204 - [Documentação Slate] Integração com ticket Frota - 2.0 pontos 
+> #99521040 - Criar aplicativo para limpar Capprint de PDVs do GP3 - 1.0 pontos 
+
+**Bugs** 
+> #111430982 - Falha ao realizar reimpressão e cancelar solicitação pela automação - 2.0 pontos 
+> #111410670 - Falha na validação do Multi-Tef do Intpos - 2.0 pontos 
+> #110341354 - Falha na inicialização do gerenciador  - 2.0 pontos 
+> #109826822 - GP em execução mais de uma vez (diferentes usuários) - 2.0 pontos 
+> #110420602 - Falha na Reimpressão do último cupom ao cancelar MultiTef - 1.0 pontos 
+> #110674078 - Clicar no botão voltar várias vezes - 2.0 pontos 
+
+**Chores** 
+> #110897992 - Permitir que em homologação seja selecionado o endereço do web service - 2.0 pontos 
+> #110898036 - [GP][DomainModel] Criar POCO das classes - 1.0 pontos 
+> #110898172 - [GP][DomainModel] Adicionar validações de propriedades - 2.0 pontos 
+> #110898174 - [GP][DomainModel] Sobrescrever ToString das classes necessárias - 3.0 pontos 
+> #110898176 - [GP][NamedPipeAdapter] Deserializar classe FleetTefRequest - 2.0 pontos 
+> #110898178 - [GP][NamedPipeAdapter] Serializar classe FleetProductsTefResponse - 1.0 pontos 
+> #110898180 - [GP][Infra] Implementar FleetService - 1.0 pontos 
+> #110898182 - [GP][TefEngine] Implementar FleetProductsTefEngine - 1.0 pontos 
+> #110898184 - [GP][TefEngine] Implementar FleetPaymentTefEngine - 1.0 pontos 
+> #110898186 - [Gp][Scope] Importar métodos e constantes do SCOPE usados no ticket frota - 1.0 pontos 
+> #110898188 - [GP][Scope] Interceptar estados do SCOPE usados no ticket frota - 2.0 pontos 
+> #110898190 - [Database] Criar tabelas de acordo com a especificação - 1.0 pontos 
+> #110898192 - [WebService] Criar endpoint para retornar lista de produtos do frota - 2.0 pontos 
+> #110898194 - [API] Criar POCO das classes e configurar exposição COM - 1.0 pontos 
+> #110898196 - [API] Serializar/Deserializar classes do ticket frota - 1.0 pontos 
+> #110898198 - [API] Criar métodos na ClienteCapta - 1.0 pontos 
+> #111086866 - Identificar clientes com host alterado para funcionar na azure - 0.0 pontos 
+> #112181919 - Arquitetar PINPAD MASTER - 2.0 pontos 
+> #111447018 - Estudar/POC GP com MultiAPI_SCOPE - 5.0 pontos 
+> #111447056 - Arquitetar GP com MultiAPI_SCOPE - 5.0 pontos 
+
