@@ -29,8 +29,12 @@ You can set these parameters through the command git config --global, example:
 
 #Dependencies
 
-`gem install tracker_api`.
-`gem install git`.
+`gem install tracker_api` <br />
+`gem install git` <br />
+`gem install multi_json` <br />
+`gem install git` <br />
+
+
 
 #How to use?
 
