@@ -37,27 +37,37 @@ module Pivotal_Hub
   end
 
   def generate_dod
+    append_title    
+    append_actual_sprint_points    
+    append_delayed_points
+    append_features
+    append_bugs
+    append_chores
+
+    write_dod_file
+  end
+  
+  def append_title
+    @dod_report << "**DoD - #{@label}** \n"
+  end
+  
+  def append_actual_sprint_points
     stories = get_sprint_stories @label
     valid_stories = stories.select{|story| story.story_type != "release"}
+    @dod_report << "Pontos a serem entregues: #{sprint_total_points stories} \n"
+    @dod_report << "Tickets a serem entregues: #{valid_stories.count} \n"
+
+  end
+
+  def append_delayed_points
     last_sprint = @label.split(//).last(1)[0].to_i - 1
     last_sprint_label = "#{@label.chop}#{last_sprint}"
     last_sprint_stories = get_sprint_stories last_sprint_label
     valid_stories_last_sprint = last_sprint_stories
                                 .select{|story| story.story_type != "release" && story.current_state != "delivered" && story.current_state != "accepted" && story.current_state != "finished"}
-    @dod_report << "**DoD - #{@label}** \n"
-    @dod_report << "Pontos a serem entregues: #{sprint_total_points stories} \n"
-    @dod_report << "Tickets a serem entregues: #{valid_stories.count} \n"
     @dod_report << "Pontos atrasados que serao entregues: #{stories_last_sprint} \n"
     @dod_report << "Tickets atrasados que serao entregues: #{valid_stories_last_sprint.count} \n"
     @dod_report << "\n"
-
-    append_features
-    append_bugs
-    append_chores
-
-    f = File.new("dod.txt","w")
-    f.write(@dod_report)
-    f.close()
   end
 
   def sprint_total_points stories
@@ -105,6 +115,12 @@ module Pivotal_Hub
     @dod_report << "\n"
   end
 
+  def write_dod_file
+    f = File.new("dod.txt","w")
+    f.write(@dod_report)
+    f.close()
+  end
+  
 end
 end
 
