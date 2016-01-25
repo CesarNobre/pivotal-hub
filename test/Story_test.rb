@@ -1,10 +1,11 @@
-require 'test_helper'
+require 'test/unit'
+require_relative '../lib/Story'
 
-module Pivotal_Hub_Tests
- class Story_test
+class Story_test < Test::Unit::TestCase
 
- 	def setup
- 	end
-
+ def test_Story_initialize
+	story = Pivotal_Hub::Story.new
+	assert story != nil
  end
+
 end

@@ -4,7 +4,6 @@ require 'git'
 module Pivotal_Hub
  class Story
   def initialize
-   if File.exists?('.git')
     @git = Git.open(Dir.pwd)
   	@client = TrackerApi::Client.new(token: @git.config('pivotal.api-token'))
   	@project  = @client.project(@git.config('pivotal.project-id'))
@@ -14,10 +13,6 @@ module Pivotal_Hub
     @features = @stories.select{|story| story.story_type == "feature"}
     @bugs = @stories.select{|story| story.story_type == "bug"}
     @dod_report = ""
-   else
-    puts "Ops, you are not in git directory!"
-    exit
-   end
   end
 
   def update_state story_id, state

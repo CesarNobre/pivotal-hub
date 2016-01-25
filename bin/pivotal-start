@@ -2,6 +2,12 @@
 
 require_relative '../lib/Story'
 
+
+if File.exists?('.git') == false
+  puts "Ops, you are not in git directory!"
+  exit
+end
+
 story = Pivotal_Hub::Story.new
 
 current_branch = story.get_current_branch
