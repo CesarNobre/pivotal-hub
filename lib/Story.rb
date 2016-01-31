@@ -120,6 +120,11 @@ module Pivotal_Hub
     f.write(@dod_report)
     f.close()
   end
+
+  def report_finished_stories
+    stories = get_sprint_stories @label
+    valid_stories = stories.select{|story| story.story_type != "release" && (story.current_state == "finished" || story.current_state == "delivered") }
+  end
   
 end
 end
