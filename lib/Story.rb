@@ -46,7 +46,7 @@ module Pivotal_Hub
 
     write_dod_file
   end
-  
+  private
   def append_title
     @dod_report << "**DoD - #{@label}** \n"
   end
