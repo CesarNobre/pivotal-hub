@@ -48,3 +48,9 @@ But if the actual branch starts with numbers, Pivotal-Hub interprets that you ar
 Example: 123456789_MyBranch
 
 Pivotal-Hub will get the numbers before underline (123456789) and will starts corresponding to that value.
+
+#Utilities
+
+You can generate the Definition of Done (DoD) based in you actual sprint, just type:
+
+`pivotal-DOD`
